@@ -1,3 +1,5 @@
 <h1>
   {{title}}
 </h1>
+<hero-detail [hero]="selectedHero"></hero-detail>
+<!-- [hero]表示hero是属性绑定表达式的目标，且该属性必须是输入属性，否则angular会拒绝绑定并抛出错误 -->
