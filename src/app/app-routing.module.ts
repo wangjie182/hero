@@ -6,8 +6,8 @@ import { HeroListComponent } from  './hero-list.component';
 import { PageNotFoundComponent } from './not-found.component';
 
 const appRoutes: Routes = [
-    { path: 'crisis-center', component:CrisisListComponent },
-    { path: 'heroes', component:HeroListComponent },
+    { path: 'crisis-center', component: CrisisListComponent },
+    { path: 'heroes', component: HeroListComponent },
     { path: '', redirectTo: '/heroes', pathMatch:'full' },
     { path: '**', component: PageNotFoundComponent }
 ];
@@ -19,6 +19,9 @@ const appRoutes: Routes = [
             {enableTracing: true }
         )
     ],
+    exports: [
+        RouterModule
+    ]
 })
 export class AppRoutingModule{
 
