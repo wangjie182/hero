@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,18 +16,16 @@ import { HeroService } from './hero.service';
         (click)="onSelect(hero)" >
         <span class="badge">{{hero.id}}</span> {{hero.name}}
       </li>
-    <ul>
+    </ul>
     <hero-detail [hero]="selectedHero"></hero-detail>
-    `,
-  //反引号包裹的组件模板能让你把<h1>、<h2>和<div>元素各自放在一行上
-  //let hero of heroes:从heroes数组中取出每个英雄，存入一个局部的hero变量，并让它在相应的模板实例中可用
-  styles: [`
-    h1 {
-      color: #369;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 250%;
-    }
-    .selected {
+  `,
+  styles: [`   
+  h1 {
+    color: #369;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 250%;
+  }    
+  .selected {
       background-color: #CFD8DC !important;
       color: white;
     }
@@ -73,26 +73,24 @@ import { HeroService } from './hero.service';
       border-radius: 4px 0 0 4px;
     }
   `],
-  providers: [HeroService]  
-
+  providers: [HeroService]
 })
 export class AppComponent implements OnInit {
-  title = 'Tour of Heroes!';
-  heroes : Hero[];
+  title = 'Tour of Heroes';
+  heroes: Hero[];
   selectedHero: Hero;
 
-  constructor (private heroService:HeroService){ }
+  constructor(private heroService: HeroService) { }
 
   getHeroes(): void {
     this.heroService.getHeroes().then(heroes => this.heroes = heroes);
   }
-  
-    ngOnInit(): void {
+
+  ngOnInit(): void {
     this.getHeroes();
   }
 
-  OnSelect(hero: Hero): void{
+  onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
 }
-
