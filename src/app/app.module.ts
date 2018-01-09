@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroesComponent } from 'app/heroes.component';
 import { HeroService } from './hero.service';
+import { DashboardComponent } from 'app/dashboard.component';
 
 @NgModule({
   imports: [
@@ -16,13 +17,23 @@ import { HeroService } from './hero.service';
       {//指向英雄组件列表
         path: 'heroes',//路由用于匹配浏览器地址栏的地址
         component: HeroesComponent,//导航到此路由时路由器需要创建的组件
+      },
+      {//配置仪表盘路由
+        path: 'dashboard',
+        component: DashboardComponent
+      },
+      {//添加重定向路由
+        path: '',
+        redirectTo: '/dashboard',
+        pathMatch: 'full'
       }
     ])
   ],
   declarations: [
     AppComponent,
     HeroDetailComponent,
-    HeroesComponent
+    HeroesComponent,
+    DashboardComponent,
   ],
   providers: [
     HeroService

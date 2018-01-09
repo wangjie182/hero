@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Top Heroes</h3>
+    <div class="grid grid-pad">
+        <!-- 使用*ngFor来在英雄列表上迭代并显示名字 -->
+        <div *ngFor="let hero of heroes" class="col-1-4">
+            <div class="module hero">
+                <h4>{{hero.name}}</h4>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
