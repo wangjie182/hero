@@ -69,7 +69,7 @@ import { HeroService } from './hero.service';
   `],
   providers: [HeroService]
 })
-export class HeroListComponent implements OnInit{
+export class AppComponent implements OnInit{
     title = 'Tour of Heroes';
     heroes: Hero[];
     selectedHero: Hero;

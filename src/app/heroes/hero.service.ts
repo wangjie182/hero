@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { Hero } from './hero';
-import { HEROES } from './mock-heroes';
+import { Hero } from 'app/hero';
+import { HEROES } from 'app/mock-heroes';
 
 @Injectable()//()括号忘记写会导致很难诊断的错误
 //加上@Injectable装饰器可以提高统一性并减少变更

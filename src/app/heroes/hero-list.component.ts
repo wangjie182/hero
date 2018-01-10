@@ -8,4 +8,4 @@ import { Component } from '@angular/core'
         <button routerLink="/sidekicks">Go to sidekicks</button>
     `
 })
-export class HeroListComponent {}
+export class HeroListComponent { }

@@ -21,4 +21,4 @@ import { HeroRoutingModule } from './heroes-routing.module';
   ],
   providers: [ HeroService ]
 })
-export class HeroesModule {}
+export class HeroesModule { } 
