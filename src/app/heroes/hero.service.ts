@@ -1,20 +1,27 @@
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
-import { Hero } from 'app/hero';
-import { HEROES } from 'app/mock-heroes';
+export class Hero {
+  constructor(public id: number, public name : string){ }
+}
 
-@Injectable()//()括号忘记写会导致很难诊断的错误
-//加上@Injectable装饰器可以提高统一性并减少变更
+const HEROES = [
+  new Hero(11,'Mr.Nice'),
+  new Hero(12,'Narco'),
+  new Hero(13,'Bombasto'),
+  new Hero(14,'Celeritas'),
+  new Hero(15,'Magneta'),
+  new Hero(16,'RubberMan')
+];
+
+@Injectable()
 export class HeroService {
-  getHeroes(): Promise<Hero[]> {
-    return Promise.resolve(HEROES);
-  }
+  getHeroes() { return Observable.of(HEROES);}
 
-  // See the "Take it slow" appendix
-  getHeroesSlowly(): Promise<Hero[]> {
-    return new Promise(resolve => {
-      // Simulate server latency with 2 second delay
-      setTimeout(() => resolve(this.getHeroes()), 2000);
-    });
+  getHero(id:number | string) {
+    return this.getHeroes()
+      .map(heroes => heroes.find(hero => hero.id === +id));
   }
 }
